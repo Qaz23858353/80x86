@@ -1,6 +1,4 @@
-;©â°­µP
-;411262764±i­P¹ç
-;411261564 ¶À¬f³Ô
+
 .386
 .model flat,stdcall
 .stack 4096
@@ -21,49 +19,49 @@ player4 dword 13 dup(0)
 player_offset dword ?
 deck_ptr dword offset deck
 ranNum dword ?
-message_suit1 byte "¶Â®ç",0
-message_suit2 byte "¬õ¤ß",0
-message_suit3 byte "¤è¶ô",0
-message_suit4 byte "±öªá",0
-message_suit5 byte "°­µP",0
-message_player byte "ª±®a¤âµP¡G",0
-message_player2_count byte "ª±®a2ÁÙ¦³¦h¤ÖµP¡G",0
-message_player2 byte "ª±®a2¤âµP¡G",0
-message_player3 byte "ª±®a3¤âµP¡G",0
-message_player4 byte "ª±®a4¤âµP¡G",0
-message_player2_zero byte "ª±®a2¨SµP¸õ¹L",0
-message_player1_zero byte "ª±®a¨SµP",0
-message_what_want_to_choose byte "­n¿ï­ş±i:",0
-erro_massege byte "­«¿ï",0
+message_suit1 byte "é»‘æ¡ƒ",0
+message_suit2 byte "ç´…å¿ƒ",0
+message_suit3 byte "æ–¹å¡Š",0
+message_suit4 byte "æ¢…èŠ±",0
+message_suit5 byte "é¬¼ç‰Œ",0
+message_player byte "ç©å®¶æ‰‹ç‰Œï¼š",0
+message_player2_count byte "ç©å®¶2é‚„æœ‰å¤šå°‘ç‰Œï¼š",0
+message_player2 byte "ç©å®¶2æ‰‹ç‰Œï¼š",0
+message_player3 byte "ç©å®¶3æ‰‹ç‰Œï¼š",0
+message_player4 byte "ç©å®¶4æ‰‹ç‰Œï¼š",0
+message_player2_zero byte "ç©å®¶2æ²’ç‰Œè·³é",0
+message_player1_zero byte "ç©å®¶æ²’ç‰Œ",0
+message_what_want_to_choose byte "è¦é¸å“ªå¼µ:",0
+erro_massege byte "é‡é¸",0
 flag dword ?
 player dword ?
 player_count dword 0
 choose dword 0
 p1 dword 0
-message_lost_player1 byte "ª±®a1¿é¤F¡I",0
-message_lost_player2 byte "ª±®a2¿é¤F¡I",0
-message_lost_player3 byte "ª±®a3¿é¤F¡I",0
-message_lost_player4 byte "ª±®a4¿é¤F¡I",0
+message_lost_player1 byte "ç©å®¶1è¼¸äº†ï¼",0
+message_lost_player2 byte "ç©å®¶2è¼¸äº†ï¼",0
+message_lost_player3 byte "ç©å®¶3è¼¸äº†ï¼",0
+message_lost_player4 byte "ç©å®¶4è¼¸äº†ï¼",0
 
 end_game_flag dword 0
 z_flag dword 0
 .code
 main proc
-	call initializeDeck			; ªì©l¤ÆµP²Õ
+	call initializeDeck			; åˆå§‹åŒ–ç‰Œçµ„
 
-	call shuffles				; ¬~µP
-	call fapie                  ;µoµP
+	call shuffles				; æ´—ç‰Œ
+	call fapie                  ;ç™¼ç‰Œ
 
-    call writeall;¥áµP«e©Ò¦³¤Hªº¤âµP
+    call writeall;ä¸Ÿç‰Œå‰æ‰€æœ‰äººçš„æ‰‹ç‰Œ
     mov ecx,player1_count
-    mov esi, offset player1   ; ª±®a1ªº¤âµP¦ì¸m
+    mov esi, offset player1   ; ç©å®¶1çš„æ‰‹ç‰Œä½ç½®
     call look
     mov eax, 0Ah  
-    call WriteChar  ;´«¦æ
+    call WriteChar  ;æ›è¡Œ
      mov eax, 0Ah  
-    call WriteChar  ;´«¦æ
+    call WriteChar  ;æ›è¡Œ
 
-   ;¥ş³¡ª±®a¥áµP
+   ;å…¨éƒ¨ç©å®¶ä¸Ÿç‰Œ
     mov ecx,player1_count
     mov esi, offset player1
     call bubbleSort 
@@ -109,8 +107,8 @@ main proc
 
 
 
- game_loop:  ;¹CÀ¸°j°é
- mov esi,offset player1   ;§PÂ_¹CÀ¸ª¬ªp
+ game_loop:  ;éŠæˆ²è¿´åœˆ
+ mov esi,offset player1   ;åˆ¤æ–·éŠæˆ²ç‹€æ³
     mov ecx,player1_count
     mov ebx,1
     call game_check
@@ -141,26 +139,26 @@ main proc
    
     cmp player2_count,0
     je n1
-    mov ecx,player1_count   ;1©â2
-    mov esi, offset player1   ; ª±®a1ªº¤âµP¦ì¸m
+    mov ecx,player1_count   ;1æŠ½2
+    mov esi, offset player1   ; ç©å®¶1çš„æ‰‹ç‰Œä½ç½®
     call look
     mov eax, 0Ah  
-    call WriteChar  ;´«¦æ
-    mov edx,offset message_player2_count   ;ª±®a2¸tµP¼Æ
+    call WriteChar  ;æ›è¡Œ
+    mov edx,offset message_player2_count   ;ç©å®¶2è–ç‰Œæ•¸
     call WriteString
     mov eax,player2_count
     call WriteDec
      mov eax, 0Ah  
     call WriteChar
-    call player_choose    ;ª±®a¿ïµP
+    call player_choose    ;ç©å®¶é¸ç‰Œ
 
 
 
-    cmp player1_count,1   ;³Ñ¤@±i³¡¥Î±Æ§Ç¤]¤£¥Î¥áµP
+    cmp player1_count,1   ;å‰©ä¸€å¼µéƒ¨ç”¨æ’åºä¹Ÿä¸ç”¨ä¸Ÿç‰Œ
     je  n1
     cmp player1_count,0
     je n1
-    mov ecx,player1_count   ;©â§¹¥áµP
+    mov ecx,player1_count   ;æŠ½å®Œä¸Ÿç‰Œ
     mov esi, offset player1
     call bubbleSort 
     mov ecx,player1_count
@@ -174,7 +172,7 @@ main proc
 n1:
      cmp player3_count,0
     je n2
-    mov ebx,player3_count   ;2©â3
+    mov ebx,player3_count   ;2æŠ½3
     mov ecx,player2_count
     mov esi,offset player2
     mov edi,offset player3
@@ -184,11 +182,11 @@ n1:
 
  
 
-    cmp player2_count,1   ;³Ñ¤@±i³¡¥Î±Æ§Ç¤]¤£¥Î¥áµP
+    cmp player2_count,1   ;å‰©ä¸€å¼µéƒ¨ç”¨æ’åºä¹Ÿä¸ç”¨ä¸Ÿç‰Œ
     je  n2
     cmp player2_count,0
     je n2
-    mov ecx,player2_count   ;©â§¹¥áµP
+    mov ecx,player2_count   ;æŠ½å®Œä¸Ÿç‰Œ
     mov esi, offset player2
     call bubbleSort 
     mov ecx,player2_count
@@ -202,7 +200,7 @@ n1:
 n2:
       cmp player4_count,0
     je n3
-    mov ebx,player4_count   ;3©â4
+    mov ebx,player4_count   ;3æŠ½4
     mov ecx,player3_count
     mov esi,offset player3
     mov edi,offset player4
@@ -212,11 +210,11 @@ n2:
 
  
 
-    cmp player3_count,1   ;³Ñ¤@±i³¡¥Î±Æ§Ç¤]¤£¥Î¥áµP
+    cmp player3_count,1   ;å‰©ä¸€å¼µéƒ¨ç”¨æ’åºä¹Ÿä¸ç”¨ä¸Ÿç‰Œ
     je  n3
     cmp player3_count,0
     je n3
-    mov ecx,player3_count   ;©â§¹¥áµP
+    mov ecx,player3_count   ;æŠ½å®Œä¸Ÿç‰Œ
     mov esi, offset player3
     call bubbleSort 
     mov ecx,player3_count
@@ -230,7 +228,7 @@ n2:
 n3:
       cmp player1_count,0
     je game_loop
-    mov ebx,player1_count   ;4©â1
+    mov ebx,player1_count   ;4æŠ½1
     mov ecx,player4_count
     mov esi,offset player4
     mov edi,offset player1
@@ -240,11 +238,11 @@ n3:
 
 
 
-    cmp player4_count,1   ;³Ñ¤@±i³¡¥Î±Æ§Ç¤]¤£¥Î¥áµP
+    cmp player4_count,1   ;å‰©ä¸€å¼µéƒ¨ç”¨æ’åºä¹Ÿä¸ç”¨ä¸Ÿç‰Œ
     je  game_loop
     cmp player4_count,0
     je game_loop
-    mov ecx,player4_count   ;©â§¹¥áµP
+    mov ecx,player4_count   ;æŠ½å®Œä¸Ÿç‰Œ
     mov esi, offset player4
     call bubbleSort 
     mov ecx,player4_count
@@ -253,7 +251,7 @@ n3:
     call dio_pie
     mov player4_count,edi
 
-    mov esi,offset player1   ;§PÂ_¹CÀ¸ª¬ªp
+    mov esi,offset player1   ;åˆ¤æ–·éŠæˆ²ç‹€æ³
     mov ecx,player1_count
     mov ebx,1
     call game_check
@@ -283,7 +281,7 @@ n3:
  
   jmp game_loop
 l22:
-   cmp end_game_flag,1   ;§PÂ_®Ñ®a
+   cmp end_game_flag,1   ;åˆ¤æ–·æ›¸å®¶
    je lost_1
    cmp end_game_flag,2
    je lost_2
@@ -311,26 +309,26 @@ main endp
 ;****************************************
 
 initializeDeck proc
-    mov ecx, 52                    ; ³]¸m°j°é¦¸¼Æ¬° 52 ±iµP
-    mov eax, 0101h                 ; AH=0, AL=1, ªì©lµP­±¼Æ¦r¬° 1¡]µP­±¼Æ¦r¡G1¡Aªá¦â¡G0¡^
+    mov ecx, 52                    ; è¨­ç½®è¿´åœˆæ¬¡æ•¸ç‚º 52 å¼µç‰Œ
+    mov eax, 0101h                 ; AH=0, AL=1, åˆå§‹ç‰Œé¢æ•¸å­—ç‚º 1ï¼ˆç‰Œé¢æ•¸å­—ï¼š1ï¼ŒèŠ±è‰²ï¼š0ï¼‰
 Start:
-    mov esi, deck_ptr              ; ±N deck_ptr «ü¦Vªº¦a§}¦sÀx¨ì esi
-    mov [esi], eax                 ; ±N eax¡]¥]§tªá¦â»PµP­±¼Æ¦r¡^¦sÀx¨ìµP²Õ¦ì¸m
-    cmp al, 13                     ; ·íµP­±¼Æ¦r¹F¨ì 13 ®É¡A¤Á´«ªá¦â
+    mov esi, deck_ptr              ; å°‡ deck_ptr æŒ‡å‘çš„åœ°å€å­˜å„²åˆ° esi
+    mov [esi], eax                 ; å°‡ eaxï¼ˆåŒ…å«èŠ±è‰²èˆ‡ç‰Œé¢æ•¸å­—ï¼‰å­˜å„²åˆ°ç‰Œçµ„ä½ç½®
+    cmp al, 13                     ; ç•¶ç‰Œé¢æ•¸å­—é”åˆ° 13 æ™‚ï¼Œåˆ‡æ›èŠ±è‰²
     je J1
-    inc eax                        ; ¼W¥[µP­±¼Æ¦r
-    add deck_ptr, sizeof dword     ; ²¾°Ê¨ì¤U¤@±iµPªº¦ì¸m
-    loop Start                     ; ­«½Æ 52 ¦¸
+    inc eax                        ; å¢åŠ ç‰Œé¢æ•¸å­—
+    add deck_ptr, sizeof dword     ; ç§»å‹•åˆ°ä¸‹ä¸€å¼µç‰Œçš„ä½ç½®
+    loop Start                     ; é‡è¤‡ 52 æ¬¡
 J1:
-    mov al, 1                      ; ­«¸mµP­±¼Æ¦r¬° 1
-    inc ah                         ; ¼W¥[ªá¦â
-    add deck_ptr, sizeof dword     ; ²¾°Ê¨ì¤U¤@±iµPªº¦ì¸m
-    loop Start                     ; ­«½Æ 52 ¦¸
+    mov al, 1                      ; é‡ç½®ç‰Œé¢æ•¸å­—ç‚º 1
+    inc ah                         ; å¢åŠ èŠ±è‰²
+    add deck_ptr, sizeof dword     ; ç§»å‹•åˆ°ä¸‹ä¸€å¼µç‰Œçš„ä½ç½®
+    loop Start                     ; é‡è¤‡ 52 æ¬¡
 
-    ; ²K¥[°­µP
-    mov eax, 0                     ; ¨Ï¥Î 0 ªí¥Ü°­µP
-    mov esi, deck_ptr              ; «ü¦V¥Ø«eµP²Õªº¤U¤@­Ó¦ì¸m
-    mov [esi], eax                 ; ±N°­µP¦s¤JµP²Õ
+    ; æ·»åŠ é¬¼ç‰Œ
+    mov eax, 0                     ; ä½¿ç”¨ 0 è¡¨ç¤ºé¬¼ç‰Œ
+    mov esi, deck_ptr              ; æŒ‡å‘ç›®å‰ç‰Œçµ„çš„ä¸‹ä¸€å€‹ä½ç½®
+    mov [esi], eax                 ; å°‡é¬¼ç‰Œå­˜å…¥ç‰Œçµ„
 
     ret
 initializeDeck endp
@@ -369,8 +367,8 @@ L1:
 	ret
 shuffles endp
 
-fapie proc   ;µoµP
-mov ecx, 14              ;ª±®a1µo14±i
+fapie proc   ;ç™¼ç‰Œ
+mov ecx, 14              ;ç©å®¶1ç™¼14å¼µ
 mov esi, offset deck ; deck_ptr
 mov edi, offset player1 
 
@@ -380,7 +378,7 @@ L1:
     add edi, sizeof dword  
     add esi, sizeof dword 
     loop L1                 
-mov ecx,13             ;ª±®a2µo13±i
+mov ecx,13             ;ç©å®¶2ç™¼13å¼µ
 mov edi, offset player2
 L2:
    mov eax, [esi]     
@@ -390,7 +388,7 @@ L2:
 	loop L2
 mov ecx,13
 mov edi, offset player3
-L3:                       ;ª±®a3µo13±i
+L3:                       ;ç©å®¶3ç™¼13å¼µ
    mov eax, [esi]    
     mov [edi], eax          
     add edi, sizeof dword   
@@ -398,7 +396,7 @@ L3:                       ;ª±®a3µo13±i
 	loop L3
 mov ecx,13
 mov edi, offset player4
-L4:                        ;ª±®a4µo13±i
+L4:                        ;ç©å®¶4ç™¼13å¼µ
    mov eax, [esi]     
     mov [edi], eax         
     add edi, sizeof dword   
@@ -409,7 +407,7 @@ L4:                        ;ª±®a4µo13±i
 fapie endp
 
 
-look proc   ;¬İµP
+look proc   ;çœ‹ç‰Œ
     mov edx, offset message_player   
     call WriteString
     cmp ecx,0
@@ -419,7 +417,7 @@ L1:
 
     mov eax, [esi]   
     
-    cmp eax, 0     ;§PÂ_ªá¦â
+    cmp eax, 0     ;åˆ¤æ–·èŠ±è‰²
     je ghost
     cmp ah, 1                
     je black1
@@ -432,34 +430,34 @@ L1:
 goback:
     mov ah, 0
    
-    call WriteDec             ; Åã¥Ü¼Æ¦r
-    mov eax, " "              ; Åã¥ÜªÅ®æ
-    call WriteChar            ; Åã¥ÜªÅ®æ
-    add esi, sizeof dword     ; ²¾°Ê¨ì¤U¤@±iµP
-    loop L1                   ; ´`Àôª½¨ìÅã¥Ü©Ò¦³¤âµP
+    call WriteDec             ; é¡¯ç¤ºæ•¸å­—
+    mov eax, " "              ; é¡¯ç¤ºç©ºæ ¼
+    call WriteChar            ; é¡¯ç¤ºç©ºæ ¼
+    add esi, sizeof dword     ; ç§»å‹•åˆ°ä¸‹ä¸€å¼µç‰Œ
+    loop L1                   ; å¾ªç’°ç›´åˆ°é¡¯ç¤ºæ‰€æœ‰æ‰‹ç‰Œ
     ret
 
 black1:
-    mov edx, offset message_suit1    ; Åã¥Ü¶Â®ç
+    mov edx, offset message_suit1    ; é¡¯ç¤ºé»‘æ¡ƒ
     call WriteString
     jmp goback
 
 red1:
-    mov edx, offset message_suit2    ; Åã¥Ü¬õ¤ß
+    mov edx, offset message_suit2    ; é¡¯ç¤ºç´…å¿ƒ
     call WriteString
     jmp goback
 
 fun:
-    mov edx, offset message_suit3    ; Åã¥Ü¤è¶ô
+    mov edx, offset message_suit3    ; é¡¯ç¤ºæ–¹å¡Š
     call WriteString
     jmp goback
 
 mei:
-    mov edx, offset message_suit4    ; Åã¥Ü±öªá
+    mov edx, offset message_suit4    ; é¡¯ç¤ºæ¢…èŠ±
     call WriteString
     jmp goback
 ghost:
-    mov edx, offset message_suit5    ; Åã¥Ü°­µP
+    mov edx, offset message_suit5    ; é¡¯ç¤ºé¬¼ç‰Œ
     call WriteString
     jmp goback
 zero:
@@ -472,7 +470,7 @@ look endp
 
 
 
-bubbleSort proc  ;ªwªw±Æ§Ç
+bubbleSort proc  ;æ³¡æ³¡æ’åº
         
     dec ecx                        
           
@@ -483,18 +481,18 @@ outer_loop:
 
 inner_loop:
    
-    mov eax, [edi]                ;«e¤@±i
-    mov edx, [edi + 4]             ;¤U¤@±i
+    mov eax, [edi]                ;å‰ä¸€å¼µ
+    mov edx, [edi + 4]             ;ä¸‹ä¸€å¼µ
 
    
-    movzx eax, al                  ;¼Æ¦r³¡¤À
+    movzx eax, al                  ;æ•¸å­—éƒ¨åˆ†
     movzx edx, dl                 
 
-    cmp eax, edx                  ;¦pªG«e­±¤ñ¸û¤p´N¤£¥Î¥æ´«
+    cmp eax, edx                  ;å¦‚æœå‰é¢æ¯”è¼ƒå°å°±ä¸ç”¨äº¤æ›
     jna skip_swap                  
 
    
-    mov eax, [edi]                 ;«e­±¤ñ¸û¤j¥æ´«
+    mov eax, [edi]                 ;å‰é¢æ¯”è¼ƒå¤§äº¤æ›
     mov edx, [edi + 4]             
     mov [edi], edx               
     mov [edi + 4], eax             
@@ -517,59 +515,59 @@ bubbleSort endp
 
 
 
-dio_pie proc   ;¥áµP
-    ; ESI: «ü¦Vª±®a¤âµPªº°_©l¦a§}
-    ; ECX: ª±®a¤âµP¼Æ¶q
+dio_pie proc   ;ä¸Ÿç‰Œ
+    ; ESI: æŒ‡å‘ç©å®¶æ‰‹ç‰Œçš„èµ·å§‹åœ°å€
+    ; ECX: ç©å®¶æ‰‹ç‰Œæ•¸é‡
 
-    mov edi, esi           ; EDI: «ü¦V·sªº¤âµP¦ì¸m
+    mov edi, esi           ; EDI: æŒ‡å‘æ–°çš„æ‰‹ç‰Œä½ç½®
 
 L1:
-    ; ½T»{¬O§_ÁÙ¦³¥¼³B²zªº¥d¤ù
-    cmp ecx, 0             ; ¦pªG³Ñ¾l¥d¤ù¬° 0¡Aµ²§ô
+    ; ç¢ºèªæ˜¯å¦é‚„æœ‰æœªè™•ç†çš„å¡ç‰‡
+    cmp ecx, 0             ; å¦‚æœå‰©é¤˜å¡ç‰‡ç‚º 0ï¼ŒçµæŸ
     je finalize
 
-    ; ´£¨ú·í«e¥d¤ùÂI¼Æ
-    mov eax, [esi]         ; ·í«e¥d¤ù
-    movzx ebx, al          ; ´£¨ú·í«e¥d¤ùªºÂI¼Æ¡]§C¦ì¦r¸`¡^
+    ; æå–ç•¶å‰å¡ç‰‡é»æ•¸
+    mov eax, [esi]         ; ç•¶å‰å¡ç‰‡
+    movzx ebx, al          ; æå–ç•¶å‰å¡ç‰‡çš„é»æ•¸ï¼ˆä½ä½å­—ç¯€ï¼‰
 
-    ; ²¾°Ê¨ì¤U¤@±i¥d¤ù¡]¦ı¼È®É«O¯d·í«e¥d¤ù¡^
-    add esi, sizeof dword  ; ²¾°Ê¨Ó·½«ü¼Ğ
-    dec ecx                ; ´î¤Ö³Ñ¾l¥d¤ù¼Æ
+    ; ç§»å‹•åˆ°ä¸‹ä¸€å¼µå¡ç‰‡ï¼ˆä½†æš«æ™‚ä¿ç•™ç•¶å‰å¡ç‰‡ï¼‰
+    add esi, sizeof dword  ; ç§»å‹•ä¾†æºæŒ‡æ¨™
+    dec ecx                ; æ¸›å°‘å‰©é¤˜å¡ç‰‡æ•¸
 
-    ; ÀË¬d¬O§_¦³¬Û¦PÂI¼Æªº¥d¤ù
-    mov flag, 0            ; ªì©l¤Æ¼Ğ»x¦ì¡]¬O§_µo²{­«½Æ¡^
+    ; æª¢æŸ¥æ˜¯å¦æœ‰ç›¸åŒé»æ•¸çš„å¡ç‰‡
+    mov flag, 0            ; åˆå§‹åŒ–æ¨™èªŒä½ï¼ˆæ˜¯å¦ç™¼ç¾é‡è¤‡ï¼‰
 
 L2:
-    cmp ecx, 0             ; ¦pªG³Ñ¾l¥d¤ù¼Æ¬° 0¡Aµ²§ô¤º¼hÀË¬d
+    cmp ecx, 0             ; å¦‚æœå‰©é¤˜å¡ç‰‡æ•¸ç‚º 0ï¼ŒçµæŸå…§å±¤æª¢æŸ¥
     je finalize_check
 
-    mov edx, [esi]         ; ´£¨ú¤U¤@±i¥d¤ù
-    movzx edx, dl          ; ´£¨ú¤U¤@±i¥d¤ùªºÂI¼Æ
+    mov edx, [esi]         ; æå–ä¸‹ä¸€å¼µå¡ç‰‡
+    movzx edx, dl          ; æå–ä¸‹ä¸€å¼µå¡ç‰‡çš„é»æ•¸
 
-    cmp ebx, edx           ; ¤ñ¸ûÂI¼Æ
-    jne finalize_check     ; ¦pªGÂI¼Æ¤£¦P¡A¸õ¹LÀË¬d
+    cmp ebx, edx           ; æ¯”è¼ƒé»æ•¸
+    jne finalize_check     ; å¦‚æœé»æ•¸ä¸åŒï¼Œè·³éæª¢æŸ¥
 
-    ; µo²{¬Û¦PÂI¼Æ¡A³]¸m¼Ğ»x¦ì
-    mov flag, 1            ; ¼Ğ»x¦ì³]¸m¬° 1
-    add esi, sizeof dword  ; ¸õ¹L­«½Æ¥d¤ù
-    dec ecx                ; ´î¤Ö³Ñ¾l¥d¤ù¼Æ
-    jmp L2                 ; Ä~ÄòÀË¬d¤U¤@±i¥d¤ù
+    ; ç™¼ç¾ç›¸åŒé»æ•¸ï¼Œè¨­ç½®æ¨™èªŒä½
+    mov flag, 1            ; æ¨™èªŒä½è¨­ç½®ç‚º 1
+    add esi, sizeof dword  ; è·³éé‡è¤‡å¡ç‰‡
+    dec ecx                ; æ¸›å°‘å‰©é¤˜å¡ç‰‡æ•¸
+    jmp L2                 ; ç¹¼çºŒæª¢æŸ¥ä¸‹ä¸€å¼µå¡ç‰‡
 
 finalize_check:
-    cmp flag, 1            ; ÀË¬d¼Ğ»x¦ì
-    je skip_card           ; ¦pªG¦³­«½Æ¥d¤ù¡A¸õ¹L«O¦s
+    cmp flag, 1            ; æª¢æŸ¥æ¨™èªŒä½
+    je skip_card           ; å¦‚æœæœ‰é‡è¤‡å¡ç‰‡ï¼Œè·³éä¿å­˜
 
-    ; ¦pªG¨S¦³­«½Æ¡A«O¯d·í«e¥d¤ù
-    mov [edi], eax         ; ±N·í«e¥d¤ù«O¦s¨ì·s°Ï°ì
-    add edi, sizeof dword  ; §ó·s¥Ø¼Ğ«ü¼Ğ
+    ; å¦‚æœæ²’æœ‰é‡è¤‡ï¼Œä¿ç•™ç•¶å‰å¡ç‰‡
+    mov [edi], eax         ; å°‡ç•¶å‰å¡ç‰‡ä¿å­˜åˆ°æ–°å€åŸŸ
+    add edi, sizeof dword  ; æ›´æ–°ç›®æ¨™æŒ‡æ¨™
 
 skip_card:
-    jmp L1                 ; Ä~Äò³B²z¤U¤@±i¥d¤ù
+    jmp L1                 ; ç¹¼çºŒè™•ç†ä¸‹ä¸€å¼µå¡ç‰‡
 
 finalize:
-    ; §ó·sª±®a¤âµP¼Æ¶q
-    sub edi, player ; ­pºâ·s¤âµPªø«×¡]¥H¦ì¤¸²Õ­pºâ¡^
-    shr edi, 2              ; ´«ºâ¦¨¥d¤ù¼Æ¶q
+    ; æ›´æ–°ç©å®¶æ‰‹ç‰Œæ•¸é‡
+    sub edi, player ; è¨ˆç®—æ–°æ‰‹ç‰Œé•·åº¦ï¼ˆä»¥ä½å…ƒçµ„è¨ˆç®—ï¼‰
+    shr edi, 2              ; æ›ç®—æˆå¡ç‰‡æ•¸é‡
    
     ret
 dio_pie endp
@@ -579,7 +577,7 @@ dio_pie endp
 
 
 
-player_choose proc   ;ª±®a¿ïµP
+player_choose proc   ;ç©å®¶é¸ç‰Œ
 choose_another:
     cmp player2_count,0
     je zero
@@ -594,27 +592,27 @@ choose_another:
     jna return
     mov ebx,choose
     sub choose,1
-    shl choose,2  ;¦bª±®a2¤¤ªº¦ì¸m
+    shl choose,2  ;åœ¨ç©å®¶2ä¸­çš„ä½ç½®
 
-    mov esi,offset player1   ;ª±®a1ÀY
-    mov edi,offset player2   ;ª±®a2ÀY
+    mov esi,offset player1   ;ç©å®¶1é ­
+    mov edi,offset player2   ;ç©å®¶2é ­
 
-    add edi,choose   ;­n©âªºµP
-    mov eax,[edi]    ;¨º±iµP
+    add edi,choose   ;è¦æŠ½çš„ç‰Œ
+    mov eax,[edi]    ;é‚£å¼µç‰Œ
     mov ecx,player1_count
     shl ecx,2
-    add esi,ecx     ;ª±®a¤@ªº³Ì«á¤@±i®a¤@
+    add esi,ecx     ;ç©å®¶ä¸€çš„æœ€å¾Œä¸€å¼µå®¶ä¸€
     mov [esi],eax
     add player1_count,1
 
-    ;­«ª±®a2¤âµP²¾°£
-    mov ecx,player2_count   ;¿ï³Ì«á¤@±iª½±µ²¾°£
+    ;é‡ç©å®¶2æ‰‹ç‰Œç§»é™¤
+    mov ecx,player2_count   ;é¸æœ€å¾Œä¸€å¼µç›´æ¥ç§»é™¤
     cmp ecx,ebx
     je n2
     sub ecx,ebx
     
     add edi,4
-deleate_loop:     ;§â©â¨«ªºµP§R±¼ §â«á­±ªº©¹«e²¾
+deleate_loop:     ;æŠŠæŠ½èµ°çš„ç‰Œåˆªæ‰ æŠŠå¾Œé¢çš„å¾€å‰ç§»
     mov eax, [edi]                    
     mov esi,edi
     sub esi, 4                        
@@ -665,28 +663,28 @@ player_choose endp
 
 
 
-cmp_choose proc   ;¹q¸£¿ïµP
+cmp_choose proc   ;é›»è…¦é¸ç‰Œ
     mov eax,ebx
     cmp ebx,0
     je n2
     call RandomRange
-	mov ranNum,eax    ;¶Ã¼Æ0-ebx
+	mov ranNum,eax    ;äº‚æ•¸0-ebx
     mov p1,eax
-    shl ranNum,2   ;´«¦¨bite
-    add edi,ranNum   ;­n©âªº¥d
-    mov eax,[edi]    ;©ñ¨ìeax
-    shl ecx,2        ;©ñ¨ì³Ì«á¤@±i ¦ì²¾¶q
+    shl ranNum,2   ;æ›æˆbite
+    add edi,ranNum   ;è¦æŠ½çš„å¡
+    mov eax,[edi]    ;æ”¾åˆ°eax
+    shl ecx,2        ;æ”¾åˆ°æœ€å¾Œä¸€å¼µ ä½ç§»é‡
     add esi,ecx
-    mov [esi],eax    ;©ñ¨ì³Ì«á¤@±i
+    mov [esi],eax    ;æ”¾åˆ°æœ€å¾Œä¸€å¼µ
 
    
-    cmp p1,ebx      ;¿ï¨ì³Ì«á¤@±iª½±µ²¾°£   ebx¤U¤@­Óª±®a  p1¶Ã¼Æ
+    cmp p1,ebx      ;é¸åˆ°æœ€å¾Œä¸€å¼µç›´æ¥ç§»é™¤   ebxä¸‹ä¸€å€‹ç©å®¶  p1äº‚æ•¸
     je n2
     mov ecx,ebx
     sub ecx,p1
     
     add edi,4
-deleate_loop:        ;¤sµP
+deleate_loop:        ;å±±ç‰Œ
     mov eax, [edi]                     
     mov esi,edi
     sub esi, 4                          
@@ -708,26 +706,26 @@ n2:
 cmp_choose endp
 
 
-game_check proc      ;¹CÀ¸ª¬ªp
-    ; esi: ª±®a¤âµP¦a§}
-    ; eax: ¶Ç¤Jªº±ø¥ó¡]¼È¥¼¨Ï¥Î¡A¦ı«O¯d±µ¤f¡^
-    ;ebx ª±®a´X
+game_check proc      ;éŠæˆ²ç‹€æ³
+    ; esi: ç©å®¶æ‰‹ç‰Œåœ°å€
+    ; eax: å‚³å…¥çš„æ¢ä»¶ï¼ˆæš«æœªä½¿ç”¨ï¼Œä½†ä¿ç•™æ¥å£ï¼‰
+    ;ebx ç©å®¶å¹¾
   
-    cmp ecx, 1             ; ÀË¬d¤âµP¬O§_¥u³Ñ¤@±i
-    jne gc_end             ; ­Y¤£¥u³Ñ¤@±iµP¡A¸õ¹LÀË¬d
+    cmp ecx, 1             ; æª¢æŸ¥æ‰‹ç‰Œæ˜¯å¦åªå‰©ä¸€å¼µ
+    jne gc_end             ; è‹¥ä¸åªå‰©ä¸€å¼µç‰Œï¼Œè·³éæª¢æŸ¥
 
-    mov edx, [esi]       ; ¨úª±®a¤â¤W²Ä¤@±iµPªº¼Æ­È
-    cmp edx, 0             ; ÀË¬d³o±iµP¬O§_¬° 0
-    jne gc_end             ; ­Y¤£¬O 0¡A¸õ¹LÀË¬d
+    mov edx, [esi]       ; å–ç©å®¶æ‰‹ä¸Šç¬¬ä¸€å¼µç‰Œçš„æ•¸å€¼
+    cmp edx, 0             ; æª¢æŸ¥é€™å¼µç‰Œæ˜¯å¦ç‚º 0
+    jne gc_end             ; è‹¥ä¸æ˜¯ 0ï¼Œè·³éæª¢æŸ¥
 
-    ; ²Å¦X±ø¥ó¡A¹CÀ¸µ²§ô
-    call writeall          ; ¿é¥X©Ò¦³ª±®aª¬ºA
-    mov end_game_flag, ebx             ; ³]¸m enp_game_flag¥Nªí¿é®a
+    ; ç¬¦åˆæ¢ä»¶ï¼ŒéŠæˆ²çµæŸ
+    call writeall          ; è¼¸å‡ºæ‰€æœ‰ç©å®¶ç‹€æ…‹
+    mov end_game_flag, ebx             ; è¨­ç½® enp_game_flagä»£è¡¨è¼¸å®¶
    
     ret
 
 gc_end:
-    ret                    ; ªğ¦^
+    ret                    ; è¿”å›
 game_check endp
 
 
@@ -735,7 +733,7 @@ game_check endp
 
 
 
-writeall proc     ;¬İ©Ò¦³¤Hªº±Æ
+writeall proc     ;çœ‹æ‰€æœ‰äººçš„æ’
     
 mov ecx,player2_count    
    mov edx,offset message_player2   
@@ -772,6 +770,7 @@ mov ecx,player4_count
     call WriteChar
     ret
 writeall endp
+
 
 
 
