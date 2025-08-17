@@ -1,6 +1,4 @@
-﻿//; 抽鬼牌
-//; 411262764張致寧
-//; 411261564 黃柏勛
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -216,3 +214,4 @@ int main() {
     }
     return 0;
 }
+
